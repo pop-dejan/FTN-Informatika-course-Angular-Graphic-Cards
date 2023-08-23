@@ -1,0 +1,16 @@
+<app-pagination [page]="params.page" [pageSize]="params.pageSize" [collectionSize]="cards.count"
+    (pageChange)="onPageChanged($event)" (pageSizeChange)="onPageSizeChanged($event)"></app-pagination>
+<div class="row">
+    <div class="col-8">
+
+        <div class="row" *ngFor="let card of cards.results">
+            <div class="col">
+                <app-card-item [card]="card" (gradeChange)="onGradeChanged($event, card)"
+                    (cardClick)="onCardClicked($event)"></app-card-item>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <app-comments *ngIf="selectedCardId > -1" [comments]="comments" (newComment)="postComment($event)"></app-comments>
+    </div>
+</div>

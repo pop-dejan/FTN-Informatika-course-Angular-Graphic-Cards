@@ -1,0 +1,16 @@
+<div class="row mt-2">
+    <div class="col-3">
+        <img [src]="card.image">
+    </div>
+    <div class="col-9">
+        <h4 (click)="onCardClicked(card._id)">{{card.title}} <small>{{card.subtitle}}</small></h4>
+        <app-show-more [text]="card.description" [textLength]="100"></app-show-more>
+        <div class="row">
+            <div class="col-12">
+                <button class="btn btn-danger ms-auto" (click)="onGradeChange(card.grade-1)">-</button>
+                 {{card.grade}} 
+                <button class="btn btn-success" (click)="onGradeChange(card.grade+1)">+</button>
+            </div>
+        </div>
+    </div>
+</div>
